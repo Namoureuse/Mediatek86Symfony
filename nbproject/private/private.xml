@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/D:/Programmes/wamp64/www/Mediatek86Symfony/templates/basefront.html.twig</file>
+            <file>file:/D:/Programmes/wamp64/www/Mediatek86Symfony/src/Entity/Niveau.php</file>
+            <file>file:/D:/Programmes/wamp64/www/Mediatek86Symfony/src/Controller/AccueilController.php</file>
+            <file>file:/D:/Programmes/wamp64/www/Mediatek86Symfony/composer.json</file>
+            <file>file:/D:/Programmes/wamp64/www/Mediatek86Symfony/templates/pages/formation.html.twig</file>
+            <file>file:/D:/Programmes/wamp64/www/Mediatek86Symfony/src/Entity/Formation.php</file>
+            <file>file:/D:/Programmes/wamp64/www/Mediatek86Symfony/src/Repository/NiveauRepository.php</file>
+            <file>file:/D:/Programmes/wamp64/www/Mediatek86Symfony/src/Repository/FormationRepository.php</file>
+            <file>file:/D:/Programmes/wamp64/www/Mediatek86Symfony/templates/pages/accueil.html.twig</file>
+            <file>file:/D:/Programmes/wamp64/www/Mediatek86Symfony/src/Controller/FormationsController.php</file>
+            <file>file:/D:/Programmes/wamp64/www/Mediatek86Symfony/vendor/composer/platform_check.php</file>
+            <file>file:/D:/Programmes/wamp64/www/Mediatek86Symfony/templates/pages/formations.html.twig</file>
+        </group>
+    </open-files>
+</project-private>

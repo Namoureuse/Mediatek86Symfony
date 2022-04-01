@@ -37,22 +37,31 @@ class FormationRepository extends ServiceEntityRepository
      * ou tous les enregistrements si la valeur est vide
      * @param type $champ
      * @param type $valeur
+     * @param type $isStrict
      * @return Formation[]
      */
-    public function findByContainValue($champ, $valeur): array{
-        if($valeur==""){
-            return $this->createQueryBuilder('f')
-                    ->orderBy('f.'.$champ, 'ASC')
-                    ->getQuery()
-                    ->getResult();
-        }else{
-            return $this->createQueryBuilder('f')
-                    ->where('f.'.$champ.' LIKE :valeur')
+    public function findByContainValue($champ, $valeur, $isStrict): array{
+        if($isStrict==='true'){
+             return $this->createQueryBuilder('f')
+                    ->where('f.'.$champ.' = :valeur')
                     ->setParameter('valeur', $valeur)
                     ->orderBy('f.publishedAt', 'DESC')
-                    ->setParameter('valeur', '%'.$valeur.'%')
                     ->getQuery()
-                    ->getResult();            
+                    ->getResult();       
+        }else{
+           if($valeur==""){
+                return $this->createQueryBuilder('f')
+                        ->orderBy('f.'.$champ, 'ASC')
+                        ->getQuery()
+                        ->getResult();
+            }else{
+                return $this->createQueryBuilder('f')
+                        ->where('f.'.$champ.' LIKE :valeur')
+                        ->orderBy('f.publishedAt', 'DESC')
+                        ->setParameter('valeur', '%'.$valeur.'%')
+                        ->getQuery()
+                        ->getResult();            
+            }  
         }
     }
         
