@@ -48,7 +48,8 @@ class FormationsController extends AbstractController {
         $niveau = $this->niveauRepository->findAll();
         return $this->render(self::PAGEFORMATIONS, [
             'formations' => $formations,
-            'niveaux' => $niveau
+            'niveaux' => $niveau,
+            'niveau_choose' => "débutant"
         ]);
     }
     
@@ -60,8 +61,11 @@ class FormationsController extends AbstractController {
      */
     public function sort($champ, $ordre): Response{
         $formations = $this->repository->findAllOrderBy($champ, $ordre);
+        $niveau = $this->niveauRepository->findAll();
         return $this->render(self::PAGEFORMATIONS, [
-           'formations' => $formations
+           'formations' => $formations,
+           'niveaux' => $niveau,
+           'niveau_choose' => "débutant"
         ]);
     }   
         
@@ -73,14 +77,14 @@ class FormationsController extends AbstractController {
      * @return Response
      */
     public function findAllContain($champ, $isStrict, Request $request): Response{
-         $niveau = $this->niveauRepository->findAll();
+        $niveau = $this->niveauRepository->findAll();
         if($this->isCsrfTokenValid('filtre_'.$champ, $request->get('_token'))){
             $valeur = $request->get("recherche");
             $formations = $this->repository->findByContainValue($champ, $valeur, $isStrict);
             return $this->render(self::PAGEFORMATIONS, [
                 'formations' => $formations,
                 'niveaux' => $niveau,
-                'niveau_choose' => (int) $valeur
+                'niveau_choose' => (int)$valeur
             ]);
         }
         return $this->redirectToRoute("formations");
@@ -95,7 +99,6 @@ class FormationsController extends AbstractController {
         $formation = $this->repository->find($id);
         return $this->render("pages/formation.html.twig", [
             'formation' => $formation,
-            'niveaux' => $niveau
         ]);        
     }    
 }
