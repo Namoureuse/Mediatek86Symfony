@@ -47,9 +47,10 @@ class AdminFormationsController extends AbstractController {
      * @param FormationRepository $repository
      * @param NiveauRepository $niveauRepository
      */
-    function __construct(FormationRepository $repository, NiveauRepository $niveauRepository) {
+    function __construct(FormationRepository $repository, NiveauRepository $niveauRepository, EntityManagerInterface $om) {
         $this->repository = $repository;
         $this->niveauRepository = $niveauRepository;
+        $this->om = $om;
     }
 
     /**
@@ -133,4 +134,5 @@ class AdminFormationsController extends AbstractController {
         $this->om->flush(); //permet d'envoyer des ordres vers la bdd
         return $this->redirectToRoute('admin.formations');
     }
+
 }
