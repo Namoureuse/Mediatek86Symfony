@@ -8,6 +8,7 @@
 namespace App\Controller\admin;
 
 use App\Entity\Formation;
+use App\Form\FormationType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -120,7 +121,7 @@ class AdminFormationsController extends AbstractController {
         
         return $this->render("admin/admin.formation.edit.html.twig", [
             'formation' => $formation,
-            'formvisite' => $formFormation->createView()
+            'formformation' => $formFormation->createView()
         ]);
     }
     
