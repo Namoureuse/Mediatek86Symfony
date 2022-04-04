@@ -135,5 +135,27 @@ class AdminFormationsController extends AbstractController {
         $this->om->flush(); //permet d'envoyer des ordres vers la bdd
         return $this->redirectToRoute('admin.formations');
     }
+    
+    /**
+     * @Route("/admin/ajout", name="admin.formation.ajout")
+     * @param Request $request
+     * @return Response
+     */
+    public function ajout(Request $request): Response {
+        $formation = new Formation();
+        $formFormation = $this->createForm(FormationType::class, $formation);
+        
+        $formFormation->handleRequest($request);
+        if($formFormation->isSubmitted() && $formFormation->isValid()) {
+            $this->om->persist($formation); //enregistre en local la visite
+            $this->om->flush();
+            return $this->redirectToRoute('admin.formations');
+        }
+        
+        return $this->render("admin/admin.formation.ajout.html.twig", [
+            'formation' => $formation,
+            'formformation' => $formFormation->createView()
+        ]);
+    }
 
 }
